@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <h1>Contatos</h1>
+    <hr>
+
+    <a href="/formContato"><button type="button" class="btn btn-primary">Incluir</button></a>
+       
+
+    <table class="table"> 
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nome</th>
+            <th scope="col">E-mail</th>
+        </tr>
+        <% contato.forEach(function(item){ %>
+        <tr>
+            <td><%= item.id %></td>
+            <td><%= item.nome %></td>
+            <td><%= item.email %></td>
+            <td>
+                <a href="/atualizarContato?id=<%= item.id %>"><button type="button" class="btn btn-success">Atualizar</button></a>
+            </td>
+            <td>
+                <a href="/excluirContato?id=<%= item.id %>" onClick="return confirm('Confirma a exclusão?')"><button type="button" class="btn btn-danger">Excluir</button></a>
+                
+            </td>
+        </tr>
+        <% }) %>
+    </table>
+
+</body>
+
+</html>
